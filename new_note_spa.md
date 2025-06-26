@@ -26,4 +26,13 @@ sequenceDiagram
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
+
+    %% Same as the chain of events caused by opening the page https://studies.cs.helsinki.fi/exampleapp/spa until here
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: ← 201 Created, is responded by server, to siginify that entry is created in notes
+    deactivate server
+
+    Note right of browser: The browser executes this change without reloading the page, and dynamically adding content to page.
 ```
